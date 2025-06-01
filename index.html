@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samiullah Samejo - Full Stack Developer & Blockchain Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Purple to Indigo gradient */
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold text-gradient">Samiullah Samejo</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-indigo-600 font-medium">Skills</a>
+                <a href="#projects" class="text-gray-700 hover:text-indigo-600 font-medium">Projects</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-indigo-600 font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-800 bg-opacity-90 z-40 flex items-center justify-center">
+            <nav class="flex flex-col space-y-6 text-center">
+                <a href="#about" class="text-white text-3xl hover:text-indigo-400" onclick="toggleMobileMenu()">About</a>
+                <a href="#skills" class="text-white text-3xl hover:text-indigo-400" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#projects" class="text-white text-3xl hover:text-indigo-400" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#testimonials" class="text-white text-3xl hover:text-indigo-400" onclick="toggleMobileMenu()">Testimonials</a>
+                <a href="#contact" class="text-white text-3xl hover:text-indigo-400" onclick="toggleMobileMenu()">Contact</a>
+            </nav>
+            <button class="absolute top-4 right-4 text-white focus:outline-none" onclick="toggleMobileMenu()">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="gradient-bg text-white py-20 px-4 rounded-b-lg">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                        Hi, I'm <span class="text-yellow-300">Samiullah Samejo</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl font-light mb-6">
+                        A passionate Full Stack Developer, Blockchain Engineer, and Telegram Bot Expert.
+                    </p>
+                    <p class="text-lg mb-8">
+                        Based in Sukkur, Sindh, Pakistan, I build reliable, scalable, and smart tech solutions. I'm dedicated to continuous learning and delivering high-quality projects globally.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#contact" class="bg-white text-indigo-700 hover:bg-gray-100 font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                            Get in Touch
+                        </a>
+                        <a href="https://github.com/UbaidiCoding" target="_blank" class="bg-transparent border border-white text-white hover:bg-white hover:text-indigo-700 font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                            My GitHub
+                        </a>
+                    </div>
+                    <div class="mt-8">
+                        <button id="generate-bio-button" class="bg-yellow-400 text-indigo-800 hover:bg-yellow-500 font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 flex items-center justify-center mx-auto md:mx-0">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.05 13.05a.75.75 0 011.06 0l3.05 3.05a.75.75 0 010 1.06l-3.05 3.05a.75.75 0 01-1.06 0l-3.05-3.05a.75.75 0 010-1.06l3.05-3.05zM12 3v1m6.364 1.636l-.707.707M21 12h-1M4.228 4.228l-.707.707M1.636 10.364h1M12 20v1m-6.364-1.636l.707-.707M3 12H2m18 0h1m-6.364-6.364l.707-.707"></path>
+                            </svg>
+                            Generate Professional Bio ✨
+                        </button>
+                        <div id="loading-indicator-bio" class="mt-4 text-white font-medium hidden text-center md:text-left">Generating bio...</div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="dp.jpg" alt="Samiullah Samejo Profile" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 px-4 bg-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12">My <span class="text-gradient">Skills & Expertise</span></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=PYTHON" alt="Python Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Python">Python</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=JS" alt="JavaScript Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="JavaScript">JavaScript</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=HTML" alt="HTML/CSS Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="HTML/CSS">HTML/CSS</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=FLASK" alt="Flask Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Flask & Django">Flask & Django</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=REACT" alt="React Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="React & Node.js">React & Node.js</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=BOT" alt="Telegram Bot Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Telegram Bot Development">Telegram Bot Development</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=AI" alt="AI/ML Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="AI/ML & SaaS Platforms">AI/ML & SaaS Platforms</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=API" alt="API Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="API Integration & Automation">API Integration & Automation</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=BRAND" alt="Personal Branding Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Personal Branding">Personal Branding</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=CANVA" alt="Canva Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Canva">Canva</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md flex items-center justify-center flex-col card">
+                        <img src="https://placehold.co/60x60/f0f2f5/333?text=FIGMA" alt="Figma Icon" class="mb-3">
+                        <h3 class="text-xl font-semibold text-gray-800" data-skill="Figma">Figma</h3>
+                        <button class="generate-skill-desc-btn mt-2 bg-indigo-500 text-white text-sm px-3 py-1 rounded-full hover:bg-indigo-600 transition duration-300">
+                            ✨ View Description
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 px-4 bg-gray-100">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12">My <span class="text-gradient">Popular Projects</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Trading+Bot" alt="Trading Bot Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Trading Bot (IBKR + TradingView + Telegram)</h3>
+                            <p class="text-gray-600 mb-4">
+                                An automated trading solution integrating Interactive Brokers, TradingView alerts, and Telegram for real-time notifications and execution.
+                            </p>
+                            <a href="https://github.com/UbaidiCoding/Trading-Bot-Project" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                View on GitHub
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Medical+Store+Management" alt="Medical Store Management System Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Medical Store Management System</h3>
+                            <p class="text-gray-600 mb-4">
+                                A comprehensive web-based system for managing medical store operations, built with HTML/CSS/JS and Python.
+                            </p>
+                            <a href="https://github.com/UbaidiCoding/Medical-Store-Management-System" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                View on GitHub
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=ubaidiAI" alt="ubaidiAI Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">ubaidiAI – AI-based Coding Assistant</h3>
+                            <p class="text-gray-600 mb-4">
+                                An intelligent assistant designed to help developers with coding tasks, leveraging AI capabilities.
+                            </p>
+                            <a href="https://github.com/UbaidiCoding/UbaidiAI" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                View on GitHub
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Telegram+Bots" alt="Custom Telegram Bots Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Custom Telegram Bots for Automation & SaaS</h3>
+                            <p class="text-gray-600 mb-4">
+                                Development of various custom Telegram bots tailored for specific automation needs and SaaS tools.
+                            </p>
+                            <a href="https://github.com/UbaidiCoding/Telegram-Bots" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                View on GitHub
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Mentorship" alt="Mentorship Achievement" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">Mentor to 100+ Students</h3>
+                            <p class="text-gray-600 mb-4">
+                                Successfully trained and mentored over 100 aspiring developers and freelancers, guiding them through their tech journeys.
+                            </p>
+                            <a href="https://ubaidilms.blogspot.com/" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                Learn More (Blog)
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=100+Projects" alt="100+ Projects Completed" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-3">100+ Projects Completed</h3>
+                            <p class="text-gray-600 mb-4">
+                                A vast portfolio of diverse projects, delivering high-quality and impactful solutions across various industries.
+                            </p>
+                            <a href="https://devsamiubaidi.blogspot.com/" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                                See More Projects
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 p-6 bg-indigo-50 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">✨ Get a New Project Idea ✨</h3>
+                    <p class="text-gray-700 mb-6">Generate a unique and innovative project idea based on your skills using Gemini AI.</p>
+                    <button id="generate-project-idea" class="bg-indigo-600 text-white hover:bg-indigo-700 font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 flex items-center justify-center mx-auto">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4.228 4.228l-.707.707M1.636 10.364h1M12 20v1m-6.364-1.636l.707-.707M3 12H2m18 0h1m-6.364-6.364l.707-.707M12 4v1m-6.364 1.636l-.707-.707M3 12h1m18 0h1m-6.364-6.364l.707-.707M12 20v1m-6.364-1.636l.707-.707"></path>
+                        </svg>
+                        Generate Idea
+                    </button>
+                    <div id="loading-indicator-project" class="mt-4 text-indigo-700 font-medium hidden">Generating idea...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 px-4 bg-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12">What Clients <span class="text-gradient">Say About Me</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card">
+                        <p class="text-gray-700 text-lg mb-4 italic">
+                            “Samiullah is a problem solver. He built my Telegram bot within hours — 100% recommended!”
+                        </p>
+                        <p class="font-semibold text-gray-800">- Satisfied Client 1</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card">
+                        <p class="text-gray-700 text-lg mb-4 italic">
+                            “One of the finest developers in Pakistan. His code is clean, and he communicates professionally.”
+                        </p>
+                        <p class="font-semibold text-gray-800">- Satisfied Client 2</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card">
+                        <p class="text-gray-700 text-lg mb-4 italic">
+                            “Fast delivery, modern design, great support. Will hire again.”
+                        </p>
+                        <p class="font-semibold text-gray-800">- Satisfied Client 3</p>
+                        <div class="flex justify-center mt-2">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 px-4 gradient-bg text-white rounded-t-lg">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8">Let's <span class="text-yellow-300">Connect</span></h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                    Whether you have a project in mind, a question, or just want to say hello, feel free to reach out. I'm always open to new opportunities and collaborations.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v7a2 2 0 002 2h14a2 2 0 002-2v-7m-18 0h18"></path>
+                        </svg>
+                        <a href="mailto:devsamiubaidi@gmail.com" class="text-lg hover:underline">devsamiubaidi@gmail.com</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span class="text-lg">03420372799</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+                        </svg>
+                        <a href="https://github.com/UbaidiCoding" target="_blank" class="text-lg hover:underline">GitHub Profile</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                        <a href="https://www.facebook.com/sami.samejo.75/" target="_blank" class="text-lg hover:underline">Facebook Profile</a>
+                    </div>
+                </div>
+                <p class="mt-8 text-md">
+                    Book a meeting: <a href="https://samiubaidi.com/appointment" target="_blank" class="hover:underline">(Coming soon)</a>
+                    <br>
+                    <span class="text-sm">Payment for meeting: 500 PKR via Easypaisa to 03420372799</span>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-4 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Samiullah Samejo. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://github.com/UbaidiCoding" target="_blank" class="hover:text-indigo-400">GitHub</a>
+                <a href="https://facebook.com/sami.samejo.75/" target="_blank" class="hover:text-indigo-400">Facebook</a>
+                <a href="https://ubaidilms.blogspot.com/" target="_blank" class="hover:text-indigo-400">Blog (Projects)</a>
+                <a href="https://writersami.blogspot.com/" target="_blank" class="hover:text-indigo-400">Blog (Articles)</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-idea-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('project-idea-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">✨ Generated Project Idea ✨</h3>
+            <p id="project-idea-content" class="text-gray-700 text-lg"></p>
+        </div>
+    </div>
+
+    <div id="skill-description-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('skill-description-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">✨ Skill Description ✨</h3>
+            <p id="skill-description-content" class="text-gray-700 text-lg"></p>
+            <div id="loading-indicator-skill" class="mt-4 text-indigo-700 font-medium hidden">Generating description...</div>
+        </div>
+    </div>
+
+    <div id="bio-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('bio-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">✨ Professional Bio ✨</h3>
+            <p id="bio-content" class="text-gray-700 text-lg"></p>
+            <div id="loading-indicator-bio-modal" class="mt-4 text-indigo-700 font-medium hidden">Generating bio...</div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Modal open/close functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Gemini API integration for Project Idea Generator
+        const generateIdeaButton = document.getElementById('generate-project-idea');
+        const loadingIndicatorProject = document.getElementById('loading-indicator-project');
+        const projectIdeaModal = document.getElementById('project-idea-modal');
+        const projectIdeaContent = document.getElementById('project-idea-content');
+
+        generateIdeaButton.addEventListener('click', async () => {
+            loadingIndicatorProject.classList.remove('hidden'); // Show loading indicator
+            generateIdeaButton.disabled = true; // Disable button
+
+            const prompt = `Generate a unique and innovative web development project idea for a full-stack developer with expertise in Python, JavaScript, HTML/CSS, Flask, Django, React, Node.js, Blockchain, Telegram Bots, AI/ML, SaaS, Personal Branding, Canva, and Figma. The idea should be practical, showcase multiple skills, and be suitable for a portfolio. Provide only the project name and a brief description (max 3 sentences).`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    projectIdeaContent.textContent = text; // Display generated idea
+                    openModal('project-idea-modal'); // Open modal
+                } else {
+                    projectIdeaContent.textContent = "Unable to generate project idea. Please try again.";
+                    openModal('project-idea-modal');
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                projectIdeaContent.textContent = "Network error or API issue. Please check console.";
+                openModal('project-idea-modal');
+            } finally {
+                loadingIndicatorProject.classList.add('hidden'); // Hide loading indicator
+                generateIdeaButton.disabled = false; // Re-enable button
+            }
+        });
+
+        // Gemini API integration for Skill Description Generator
+        const generateSkillDescButtons = document.querySelectorAll('.generate-skill-desc-btn');
+        const loadingIndicatorSkill = document.getElementById('loading-indicator-skill');
+        const skillDescriptionModal = document.getElementById('skill-description-modal');
+        const skillDescriptionContent = document.getElementById('skill-description-content');
+
+        generateSkillDescButtons.forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const skillName = event.target.previousElementSibling.dataset.skill;
+                
+                loadingIndicatorSkill.classList.remove('hidden'); // Show loading indicator
+                button.disabled = true; // Disable button
+
+                const prompt = `Provide a concise and professional description (max 3 sentences) for the skill: ${skillName}. Explain its relevance in modern web development or technology.`;
+
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        skillDescriptionContent.textContent = text; // Display generated description
+                        openModal('skill-description-modal'); // Open modal
+                    } else {
+                        skillDescriptionContent.textContent = "Unable to generate skill description. Please try again.";
+                        openModal('skill-description-modal');
+                    }
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    skillDescriptionContent.textContent = "Network error or API issue. Please check console.";
+                    openModal('skill-description-modal');
+                } finally {
+                    loadingIndicatorSkill.classList.add('hidden'); // Hide loading indicator
+                    button.disabled = false; // Re-enable button
+                }
+            });
+        });
+
+        // Gemini API integration for Professional Bio Generator
+        const generateBioButton = document.getElementById('generate-bio-button');
+        const loadingIndicatorBio = document.getElementById('loading-indicator-bio');
+        const bioModal = document.getElementById('bio-modal');
+        const bioContent = document.getElementById('bio-content');
+
+        generateBioButton.addEventListener('click', async () => {
+            loadingIndicatorBio.classList.remove('hidden'); // Show loading indicator
+            generateBioButton.disabled = true; // Disable button
+
+            // Constructing a comprehensive prompt using all listed skills
+            const skillsList = [
+                "Python", "JavaScript", "HTML/CSS", "Flask", "Django", "React", "Node.js",
+                "Blockchain", "Telegram Bot Development", "AI/ML", "SaaS Platforms",
+                "API Integration & Automation", "Personal Branding", "Canva", "Figma"
+            ].join(", ");
+
+            const prompt = `Generate a professional and concise "About Me" bio (max 5 sentences) for a full-stack developer named Samiullah Samejo. Highlight his expertise in: ${skillsList}. Mention his location as Sukkur, Sindh, Pakistan, and his dedication to building reliable, scalable, and smart tech solutions globally.`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    bioContent.textContent = text; // Display generated bio
+                    openModal('bio-modal'); // Open modal
+                } else {
+                    bioContent.textContent = "Unable to generate professional bio. Please try again.";
+                    openModal('bio-modal');
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API for bio generation:", error);
+                bioContent.textContent = "Network error or API issue. Please check console.";
+                openModal('bio-modal');
+            } finally {
+                loadingIndicatorBio.classList.add('hidden'); // Hide loading indicator
+                generateBioButton.disabled = false; // Re-enable button
+            }
+        });
+    </script>
+</body>
+</html>
